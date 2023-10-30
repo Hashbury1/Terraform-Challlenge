@@ -8,6 +8,8 @@ resource "aws_vpc" "for_vpc" {
   }
 }
 
+
+# create VPC subnet 
 resource "aws_subnet" "main" {
   vpc_id     = aws_vpc.for_vpc.id
   cidr_block = "10.0.1.0/24"
@@ -17,6 +19,7 @@ resource "aws_subnet" "main" {
   }
 }
 
+# Create internet gateway for internet access 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.for_vpc.id
 
